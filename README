@@ -1,2 +1,12 @@
 To start:
-$ lein run
+
+1. Define env variables
+export GOOGLE_API_KEY=...
+export SPREADSHEET_ID=...
+export SERVER_PORT=8080
+
+2. Builder docker container
+docker build -t mjb-exchange-rates-clj .
+
+3. Start docker container
+docker run -p $SERVER_PORT:$SERVER_PORT -e GOOGLE_API_KEY -e SPREADSHEET_ID mjb-exchange-rates-clj
