@@ -60,4 +60,5 @@
 (defn -main [& args]
   (run-server serve-request {:port server-port})
   (print "Server running on port " server-port)
+  (flush)
 )
