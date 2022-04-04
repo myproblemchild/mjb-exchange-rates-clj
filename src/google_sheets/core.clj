@@ -1,6 +1,5 @@
 (ns google-sheets.core
   (:require
-   [clj-http.client :as client]
    [org.httpkit.server :refer [run-server]]
    [cheshire.core :refer :all])
   (:gen-class))
@@ -14,7 +13,7 @@
 ;; Final request URL to fetch exchange rates.
 (def request-url (format url-template spreadsheet-id api-key))
 
-(defn fetch-json-from-url [url] (client/get url {:as :json}))
+(defn fetch-json-from-url [url] (-> url slurp decode))
 
 (defn make-exchange-rates-map [fetched-exchange-pairs]
   (->>
@@ -43,8 +42,7 @@
   (->>
     request-url
     fetch-json-from-url
-    :body
-    :values
+    (#(% "values"))
     make-exchange-rates-map
     build-response-map
   )

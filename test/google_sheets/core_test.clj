@@ -16,19 +16,18 @@
    })
 
 (def example-spreadsheet-json-response
-  {:body {
-          :range "Sheet1!A1:B1000",
-          :majorDimension "ROWS",
-          :values [
-                   ["USD" "116.7936"]
-                   ["EUR" "129.2386"]
-                   ["GBP" "152.8112"]
-                   ["AUD" "87.2506"]
-                   ["CAD" "93.1443"]
-                   ["HKD" "14.9062"]
-                   ["SGD" "86.0421"]
-                   ]
-          }
+  {
+   "range" "Sheet1!A1:B1000",
+   "majorDimension" "ROWS",
+   "values" [
+             ["USD" "116.7936"]
+             ["EUR" "129.2386"]
+             ["GBP" "152.8112"]
+             ["AUD" "87.2506"]
+             ["CAD" "93.1443"]
+             ["HKD" "14.9062"]
+             ["SGD" "86.0421"]
+             ]
    })
 
 (deftest e2e-test
